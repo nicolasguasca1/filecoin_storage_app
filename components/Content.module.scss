@@ -1,0 +1,62 @@
+.content {
+  padding: 24px;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  margin-top: 24px;
+}
+
+.table {
+  width: 100%;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.row {
+  width: 100%;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.heading {
+  border: 1px solid var(--color-border);
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  padding: 8px;
+  text-align: left;
+}
+
+.cell {
+  border: 1px solid var(--color-border);
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  padding: 8px;
+  text-align: left;
+}
+
+.action {
+  text-decoration: underline;
+  color: var(--color-primary);
+  cursor: pointer;
+
+  :hover {
+    color: darkblue;
+  }
+}
+
+.secondary {
+  text-decoration: underline;
+  color: #08bdba;
+  cursor: pointer;
+
+  :hover {
+    color: darkblue;
+  }
+}
