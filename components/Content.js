@@ -26,7 +26,7 @@ export default function Content(props) {
         </React.Fragment>
       ) : (
         <React.Fragment>
-          <h2>ROYALHITS LIVE</h2>
+          <h2>ROYALHITS IS LIVE</h2>
           <p>All of your buckets that you have created will appear here.</p>
           <br />
           <table className={styles.table}>
