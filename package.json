@@ -13,9 +13,17 @@
     "busboy": "^0.3.1",
     "cors": "^2.8.5",
     "next": "latest",
-    "react": "^16.7.0",
-    "react-dom": "^16.7.0",
-    "sass": "1.26.3"
+    "axios": "^0.21.1",
+    "hls.js": "^1.0.1",
+    "mux.js": "^5.11.0",
+    "postcss-import": "^13.0.0",
+    "postcss-preset-env": "^6.7.0",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "sass": "^1.32.8",
+    "videojs-contrib-hls": "^5.15.0",
+    "videojs-contrib-quality-levels": "^2.1.0",
+    "videojs-hls-quality-selector": "^1.1.4"
   },
   "license": "MIT"
 }

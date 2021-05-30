@@ -20,12 +20,13 @@ export default function Content(props) {
         <React.Fragment>
           <h2>Use a token</h2>
           <p>
-            Generate or use an existing private key to try out the features of this application.
+            Generate or use an existing private key to try out the features of
+            this application.
           </p>
         </React.Fragment>
       ) : (
         <React.Fragment>
-          <h2>Buckets</h2>
+          <h2>ROYALHITS LIVE</h2>
           <p>All of your buckets that you have created will appear here.</p>
           <br />
           <table className={styles.table}>
@@ -44,7 +45,9 @@ export default function Content(props) {
                       <td className={styles.cell}>
                         <span
                           className={styles.action}
-                          onClick={() => props.onSelectBucket({ bucketKey: b.key })}
+                          onClick={() =>
+                            props.onSelectBucket({ bucketKey: b.key })
+                          }
                         >
                           {b.name}
                         </span>{" "}
@@ -60,7 +63,9 @@ export default function Content(props) {
                           (select for Filecoin)
                         </span>
                       </td>
-                      <td className={styles.cell}>{U.bytesToSize(b.bucketSize)}</td>
+                      <td className={styles.cell}>
+                        {U.bytesToSize(b.bucketSize)}
+                      </td>
                       <td className={styles.cell}>{b.items.length}</td>
                       <td className={styles.cell}>
                         <a href={url} target="_blank">
@@ -70,7 +75,10 @@ export default function Content(props) {
                           <span
                             className={styles.secondary}
                             onClick={() =>
-                              props.onDeleteBucket({ bucketName: b.name, bucketKey: b.key })
+                              props.onDeleteBucket({
+                                bucketName: b.name,
+                                bucketKey: b.key,
+                              })
                             }
                           >
                             (delete)
@@ -91,7 +99,10 @@ export default function Content(props) {
             >
               Refresh
             </Button>
-            <Button onClick={props.onCreateBucket} loading={props.state.loading}>
+            <Button
+              onClick={props.onCreateBucket}
+              loading={props.state.loading}
+            >
               Create
             </Button>
           </div>
@@ -126,7 +137,10 @@ export default function Content(props) {
                         {i.cid}
                       </a>{" "}
                       {i.name !== ".textileseed" ? (
-                        <span className={styles.action} onClick={() => window.alert("coming soon")}>
+                        <span
+                          className={styles.action}
+                          onClick={() => window.alert("coming soon")}
+                        >
                           (delete)
                         </span>
                       ) : null}

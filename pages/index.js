@@ -6,6 +6,9 @@ import Sidebar from "~/components/Sidebar";
 import Content from "~/components/Content";
 import Dealbar from "~/components/Dealbar";
 import Metamask from "../components/Metamask";
+import LeftSide from "../components/LeftSide";
+
+// token bbaareqbjrqd5e6r2o5vrfccjebcjpo4ukrwd67t3xzhindwf62zwoyz6h2hdukyesjpklpwgqsyqtcadkgunua7ebstnj3khkfqkzkuajb7dq
 
 const HiddenFileInput = (props) => (
   <input
@@ -29,12 +32,28 @@ function onSetLoading(state, setState) {
 }
 
 function Home(props) {
-  const [state, setState] = React.useState({});
+  console.log(props);
+  const [state, setState] = React.useState({
+    addresses: [],
+    buckets: [],
+    token: null,
+    key: props.token,
+    loading: true,
+    selectedArchives: null,
+  });
 
   React.useEffect(() => {
     async function fetchData() {
-      const response = await fetch("/api");
-      const json = await response.json();
+      // const response = await fetch("/api");
+      // const json = await response.json();
+
+      let next;
+      const response = await R.onGetFilecoinAddresses(state, setState);
+      if (response.addresses) {
+        next = { ...state, addresses: response.addresses };
+      }
+
+      await R.onListBuckets(next, setState);
     }
     fetchData();
   }, []);
@@ -57,39 +76,7 @@ function Home(props) {
   );
 
   return (
-    <App
-      topRight={<Metamask />}
-      sidebar={
-        <Sidebar
-          gateway={props.gateway}
-          state={state}
-          onChange={setState}
-          onSetToken={async (token) => {
-            let next = {
-              addresses: [],
-              buckets: [],
-              token: null,
-              key: token,
-              loading: true,
-              selectedArchives: null,
-            };
-            setState(next);
-
-            const response = await R.onGetFilecoinAddresses(next, setState);
-            if (response.addresses) {
-              next = { ...next, addresses: response.addresses };
-            }
-
-            await R.onListBuckets(next, setState);
-          }}
-          onGenerateToken={async () => {
-            setState({ ...state, loading: true });
-            await R.onGenerateToken(state, setState);
-          }}
-        />
-      }
-      right={rightElement}
-    >
+    <App topRight={<Metamask />} sidebar={<LeftSide />}>
       <HiddenFileInput
         onChange={async (e) => {
           e.persist();
@@ -133,7 +120,7 @@ function Home(props) {
 }
 
 Home.getInitialProps = async (ctx) => {
-  return { gateway: process.env.IPFS_GATEWAY };
+  return { gateway: process.env.IPFS_GATEWAY, token: process.env.LIBP2P_TOKEN };
 };
 
 export default Home;
