@@ -2,7 +2,7 @@ import React from "react";
 import videojs from "video.js";
 import "videojs-contrib-hls";
 import "videojs-contrib-quality-levels";
-import hlsQualitySelector from "videojs-hls-quality-selector";
+import "videojs-hls-quality-selector";
 import "video.js/dist/video-js.min.css";
 
 import APIKeyForm from "./APIKeyForm";
