@@ -18,6 +18,7 @@ const INITIAL_STATE = {
   streamKey: null,
   streamIsActive: false,
   error: null,
+  record: true,
 };
 
 const reducer = (state, action) => {
